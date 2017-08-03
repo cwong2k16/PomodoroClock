@@ -1,0 +1,56 @@
+$gbc: antiquewhite;   // general button color (font)
+$gbw: 50px;            // general width of button
+$btnAdd: green;       // button color for add
+$btnSub: red;         // button color for sub
+$font-family: "Arial Black", Helvetica, sans-serif;
+
+@mixin bgc($color){
+    background-color: $color;
+}
+
+body{
+  @include bgc(white);
+}
+
+h2{
+    text-align: center;
+    font-family: $font-family;
+}
+
+@mixin button-style($width, $color, $bgc){
+    width: $width;
+    color: $color;
+    margin: 5px;
+    @include bgc($bgc);
+    @include bs(2px 2px 1px black);
+}
+
+@mixin br($rad){
+    border-radius: $rad;
+}
+
+@mixin bs($shadow){
+    box-shadow: $shadow;
+}
+
+.buttonAdd{
+    @include button-style($gbw, $gbc, $btnAdd);
+}
+
+.buttonSub{
+    @include button-style($gbw, $gbc, $btnSub);
+}
+
+.timer{
+    font-size: $gbw/2;
+    display: inline-block;
+    width: 50px;
+    color: white;
+    @include bgc(#A9A9A9);
+    @include br(50px);
+    @include bs(2px 2px 1px black);
+}
+
+.center{
+    text-align: center;
+}

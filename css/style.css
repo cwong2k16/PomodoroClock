@@ -1,0 +1,34 @@
+body {
+  background-color: white; }
+
+h2 {
+  text-align: center;
+  font-family: "Arial Black", Helvetica, sans-serif; }
+
+.buttonAdd {
+  width: 50px;
+  color: antiquewhite;
+  margin: 5px;
+  background-color: green;
+  box-shadow: 2px 2px 1px black; }
+
+.buttonSub {
+  width: 50px;
+  color: antiquewhite;
+  margin: 5px;
+  background-color: red;
+  box-shadow: 2px 2px 1px black; }
+
+.timer {
+  font-size: 25px;
+  display: inline-block;
+  width: 50px;
+  color: white;
+  background-color: #A9A9A9;
+  border-radius: 50px;
+  box-shadow: 2px 2px 1px black; }
+
+.center {
+  text-align: center; }
+
+/*# sourceMappingURL=style.css.map */
