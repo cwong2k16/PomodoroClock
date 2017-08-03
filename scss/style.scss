@@ -44,7 +44,7 @@ h2{
 .timer{
     font-size: $gbw/2;
     display: inline-block;
-    width: 50px;
+    width: $gbw*2;
     color: white;
     @include bgc(#A9A9A9);
     @include br(50px);
