@@ -10,6 +10,8 @@ var currTimeBreak = -1;
 var inBreak = false;
 var interval;
 
+var test = 5405000;
+
 $(document).ready(function(){
     $("button").click(function(){
         if(this.id === "breakAdd" || this.id === "breakSub"){
@@ -36,7 +38,10 @@ $(document).ready(function(){
         }
         else{
             playing = !playing;
-            $("#playpause").attr('src', '/assets/pause.png');
+            if(playing)
+                $("#playpause").attr('src', '/assets/pause.png');
+            else
+                $("#playpause").attr('src', '/assets/play.png');
             play();
         }
     });
@@ -53,6 +58,7 @@ function tick(){
     if(!inBreak){
         if(sessionCopy >= 0){
             console.log("SESSION: " + sessionCopy);
+            document.getElementById("timer").innerHTML = "SESSION: " + format(sessionCopy);
             sessionCopy -= 1000;
         }
         else{
@@ -63,6 +69,7 @@ function tick(){
     else{
         if(breakCopy >= 0){
             console.log("BREAK: " + breakCopy);
+            document.getElementById("timer").innerHTML = "BREAK: " + format(breakCopy);
             breakCopy-=1000;
         }
         else{
@@ -72,3 +79,10 @@ function tick(){
     }
 }
 
+function format(sessionCopy){
+    var hours = Math.floor(sessionCopy/3600000);
+    var minutes = Math.floor((sessionCopy-hours*3600000)/60000);
+    var seconds = Math.floor(((sessionCopy-hours*3600000) - minutes*60000)/1000);
+    
+    return "hours: " + hours + "; " + "minutes: " + minutes + "; " + "seconds: " + seconds;
+}
