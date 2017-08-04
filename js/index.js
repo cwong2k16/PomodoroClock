@@ -9,10 +9,10 @@ var currTimeSess = -1;
 var currTimeBreak = -1;
 var inBreak = false;
 var interval;
-
-var test = 5405000;
+var audio;
 
 $(document).ready(function(){
+    audio = new Audio('assets/beep.mp3');
     $("button").click(function(){
         if((this.id === "breakAdd" || this.id === "breakSub") && !playing){
             if(this.id === "breakAdd" && breakLength < 60){
@@ -48,8 +48,10 @@ $(document).ready(function(){
 });
 
 function play(){
-    if(playing)
+    if(playing){
+        audio.play();
         interval = setInterval(tick, 1000);
+    }
     else
         clearInterval(interval);
 }
@@ -57,24 +59,24 @@ function play(){
 function tick(){
     if(!inBreak){
         if(sessionCopy >= 0){
-            console.log("SESSION: " + sessionCopy);
             document.getElementById("timer").innerHTML = "SESSION: " + format(sessionCopy);
             sessionCopy -= 1000;
         }
         else{
             inBreak = true;
             sessionCopy = sessionLength*60000;
+            audio.play();
         }
     }
     else{
         if(breakCopy >= 0){
-            console.log("BREAK: " + breakCopy);
             document.getElementById("timer").innerHTML = "BREAK: " + format(breakCopy);
             breakCopy-=1000;
         }
         else{
             inBreak = false;
             breakCopy = breakLength*60000;
+            audio.play();
         }            
     }
 }

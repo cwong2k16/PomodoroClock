@@ -1,8 +1,9 @@
 body {
   background-color: lightgrey;
-  color: white; }
+  color: white;
+  font-size: 20px; }
 
-h2 {
+h1 {
   text-align: center;
   font-family: "Arial Black", Helvetica, sans-serif;
   color: white; }
