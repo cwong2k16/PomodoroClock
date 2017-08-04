@@ -1,9 +1,11 @@
 body {
-  background-color: lightgrey; }
+  background-color: lightgrey;
+  color: white; }
 
 h2 {
   text-align: center;
-  font-family: "Arial Black", Helvetica, sans-serif; }
+  font-family: "Arial Black", Helvetica, sans-serif;
+  color: white; }
 
 .button, .buttonAdd, .buttonSub, .playpause {
   width: 50px;

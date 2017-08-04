@@ -14,29 +14,29 @@ var test = 5405000;
 
 $(document).ready(function(){
     $("button").click(function(){
-        if(this.id === "breakAdd" || this.id === "breakSub"){
-            if(this.id === "breakAdd"){
+        if((this.id === "breakAdd" || this.id === "breakSub") && !playing){
+            if(this.id === "breakAdd" && breakLength < 60){
                 breakLength++;
                 breakCopy = breakLength*60000;
             }
-            else{
+            else if(this.id === "breakSub" && breakLength > 1){
                 breakLength--;
                 breakCopy = breakLength * 60000;
             }
             $("#breakTimeset").text(breakLength);
         }
-        else if(this.id === "sessionAdd" || this.id === "sessionSub"){
-            if(this.id === "sessionAdd"){
+        else if((this.id === "sessionAdd" || this.id === "sessionSub") && !playing){
+            if(this.id === "sessionAdd" && sessionLength < 300){
                 sessionLength++;
                 sessionCopy = sessionLength * 60000;
             }
-            else{
+            else if(this.id === "sessionSub" && sessionLength > 1){
                 sessionLength--;
                 sessionCopy = sessionLength * 60000;
             }
             $("#sessionTimeset").text(sessionLength);
         }
-        else{
+        else if(this.id === "pauseplay"){
             playing = !playing;
             if(playing)
                 $("#playpause").attr('src', '/assets/pause.png');
@@ -84,5 +84,16 @@ function format(sessionCopy){
     var minutes = Math.floor((sessionCopy-hours*3600000)/60000);
     var seconds = Math.floor(((sessionCopy-hours*3600000) - minutes*60000)/1000);
     
-    return "hours: " + hours + "; " + "minutes: " + minutes + "; " + "seconds: " + seconds;
+    var stringHours = "";
+    var stringMinutes = "";
+    var stringSeconds = "";
+    
+    if(hours/10 < 1)
+        stringHours += "0";
+    if(minutes/10 < 1)
+        stringMinutes += "0";
+    if(seconds/10 < 1)
+        stringSeconds += "0";
+    
+    return stringHours + hours + ":" + stringMinutes + minutes + ":" + stringSeconds + seconds;
 }

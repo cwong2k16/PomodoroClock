@@ -3,6 +3,7 @@ $gbw: 50px;            // general width of button
 $btnAdd: green;       // button color for add
 $btnSub: red;         // button color for sub
 $font-family: "Arial Black", Helvetica, sans-serif;
+$gtc: white; // general text color
 
 @mixin bgc($color){
     background-color: $color;
@@ -10,11 +11,13 @@ $font-family: "Arial Black", Helvetica, sans-serif;
 
 body{
   @include bgc(lightgrey);
+  color: $gtc;
 }
 
 h2{
     text-align: center;
     font-family: $font-family;
+    color: $gtc;
 }
 
 @mixin button-style($width, $bgc){
