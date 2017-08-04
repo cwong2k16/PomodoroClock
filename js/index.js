@@ -2,6 +2,7 @@
 
 var breakLength = 5;    // 5 minutes
 var sessionLength = 25; // 25 minutes
+var playing = false;    // toggle this for playing/pausing
 
 $(document).ready(function(){
     $("button").click(function(){
@@ -22,6 +23,15 @@ $(document).ready(function(){
                 sessionLength--;
             }
             $("#sessionTimeset").text(sessionLength);
+        }
+        else{
+//            playing = !playing;
+//            if(playing){
+//                $("#playpause").attr('src', '/assets/pause.png');
+//            }
+//            else{
+//                $("#playpause").attr('src', '/assets/play.png');
+//            }
         }
     });
 });

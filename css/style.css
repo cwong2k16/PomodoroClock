@@ -1,23 +1,25 @@
 body {
-  background-color: white; }
+  background-color: lightgrey; }
 
 h2 {
   text-align: center;
   font-family: "Arial Black", Helvetica, sans-serif; }
 
-.buttonAdd {
+.button, .buttonAdd, .buttonSub, .playpause {
   width: 50px;
-  color: antiquewhite;
   margin: 5px;
-  background-color: green;
+  background-color: lightgrey;
   box-shadow: 2px 2px 1px black; }
 
+.buttonAdd {
+  background-color: green; }
+
 .buttonSub {
-  width: 50px;
-  color: antiquewhite;
-  margin: 5px;
-  background-color: red;
-  box-shadow: 2px 2px 1px black; }
+  background-color: red; }
+
+.playpause {
+  border-radius: 35px;
+  padding: 0px; }
 
 .timer {
   font-size: 25px;

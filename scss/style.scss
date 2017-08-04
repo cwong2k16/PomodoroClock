@@ -1,4 +1,4 @@
-$gbc: antiquewhite;   // general button color (font)
+$gbc: lightgrey;   // general button color (font)
 $gbw: 50px;            // general width of button
 $btnAdd: green;       // button color for add
 $btnSub: red;         // button color for sub
@@ -9,7 +9,7 @@ $font-family: "Arial Black", Helvetica, sans-serif;
 }
 
 body{
-  @include bgc(white);
+  @include bgc(lightgrey);
 }
 
 h2{
@@ -17,9 +17,8 @@ h2{
     font-family: $font-family;
 }
 
-@mixin button-style($width, $color, $bgc){
+@mixin button-style($width, $bgc){
     width: $width;
-    color: $color;
     margin: 5px;
     @include bgc($bgc);
     @include bs(2px 2px 1px black);
@@ -33,12 +32,24 @@ h2{
     box-shadow: $shadow;
 }
 
+.button{
+    @include button-style($gbw, $gbc);
+}
+
 .buttonAdd{
-    @include button-style($gbw, $gbc, $btnAdd);
+    @extend .button;
+    @include bgc($btnAdd);
 }
 
 .buttonSub{
-    @include button-style($gbw, $gbc, $btnSub);
+    @extend .button;
+    @include bgc($btnSub);
+}
+
+.playpause{
+    @extend .button;
+    @include br(35px);
+    padding: 0px;
 }
 
 .timer{
